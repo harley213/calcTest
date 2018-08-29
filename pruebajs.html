@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<title>modulos</title>
+		<link rel="stylesheet" type="text/css" href="css/style2.css"/>
+
+		<style type="text/css">
+			
+			.btn{
+				    cursor: pointer;
+			    background-color: red;
+			    width: 200px;
+			    height: 29px;
+			    font-weight: bold;
+			    border: 2px solid black;
+			}
+		</style>
+		<script type="text/Javascript">
+
+			function suma(var1, var2){
+				return var1+ var2;
+			}
+
+			function resta(var1, var2){
+				return var1 - var2;
+			}
+			function mult(var1, var2){
+				return var1 * var2;
+			}
+
+			function div(var1, var2){
+				if(var2 > 0){
+					return var1 / var2;
+				}else{
+					return "no puede dividir por 0";
+				}
+				
+			}
+
+
+			var nro1 = 1;
+			var nro2=3;
+			//var suma= nro1+nro2;
+			//alert("la suma es "+suma);
+
+			var miarreglo = [1,2,3,4];
+
+/**
+			for (var i=0; i< miarreglo.length;i++){
+				console.log(" miarreglo  "+i+" es: "+miarreglo[i]);
+
+				if(i ==1){
+					console.log("paso por i = 1");
+				}else if(i == 2){
+					console.log("paso por i = 2");
+				}else{
+					console.log("no es 1");
+				}
+
+				if (i % 2 == 0){
+					//alert("modulo de "+i);
+				}
+			}
+
+**/
+		//	console.log("en consola la suma es "+suma);
+
+			function ejecutar(){
+				
+			    var variable1= document.getElementById("nro1").value;
+				var variable2= document.getElementById("nro2").value;
+				
+				var operacion= document.getElementById("operacion");
+				var rst = "";
+				if(operacion.value =="1"){
+
+					var sumar= suma(parseInt(variable1),parseInt(variable2));
+			
+					rst = sumar;
+				}else if(operacion.value =="2"){
+					var restar = resta(parseInt(variable1),parseInt(variable2));
+					rst = restar;
+				}else if(operacion.value =="3"){
+					var multi = mult(parseInt(variable1),parseInt(variable2));
+					rst = multi;
+				}else if(operacion.value =="4"){
+					var divi = div(parseInt(variable1),parseInt(variable2));
+					rst = divi;
+				}else{
+					rst = "Seleccione operación";
+				}
+
+				document.getElementById("rst").value=rst;
+			}
+			
+
+			
+
+		</script>
+	</head>
+	<body>
+			<div>
+				<label>Nro1</label>
+				<input type="text" id="nro1" value="" placeholder="ingrese n1" />
+				<br/>
+				<label>Nro2</label>
+				<input type="text" id="nro2" value="" placeholder="ingrese n2"  />
+				<br/>
+				<select id="operacion">
+					<option value="">Seleccione operación</option>
+					<option value="1">+</option>
+					<option value="2">-</option>
+					<option value="3">*</option>
+					<option value="4">/</option>
+				</select>
+				<br/>
+				<input type="button" id="btn" value="enviar" onclick="ejecutar()" />
+
+				<div class="btn" onclick="ejecutar()">
+					Enviar
+
+				</div>
+
+				<br/><br/><br/>
+				<label>Resultado:</label>
+				<input type="text" id="rst" value="" disabled="true" />
+			</div>
+
+			
+	</body>
+
+</html>
